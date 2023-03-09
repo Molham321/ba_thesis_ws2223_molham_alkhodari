@@ -6,6 +6,8 @@ Ein Bachelorarbeit Projekt von Molham Al-khodari
 
 Ich habe eine native Web-Komponente namens DW-DATATABLE entwickelt, die mit TypeScript implementiert wurde, welche im Rahmen meiner Bachelorarbeit für die DAKO GmbH entstanden ist. Sie ermöglicht es, dynamische Daten zu visualisieren, Live-Filterung und Suche durchzuführen, Fehler zu behandeln, große Datenmengen effizient zu verarbeiten, verschiedene Datenformate zu handhaben und schnell und performant zu arbeiten.
 
+![DW-DATATABLE](documentation/DW-DATATABLE.png)
+
 # Ziel
 
 Das Ziel dieser Arbeit besteht darin, eine native Web-Komponente mit TypeScript zu entwickeln, um große und dynamische Datenmengen in
