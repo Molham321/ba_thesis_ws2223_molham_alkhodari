@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> dw-datatable Component Demo </title>
+    <script src="../dist/index.js" type="module"></script>
+</head>
+
+<body>
+    <!-- example -->
+
+    <dw-datatable 
+        src="../employees.json"
+        columns="EmploymentType, Nationality, d.Surename, d.FirstNames, d.ID, d.CardGeneration, d.CardExpirationDate, d.card_state, d.CardNumber, d.Nation, di.Activ"
+        livefilter="d.Surename, d.ID, d.CardExpirationDate" 
+        checkboxs="true">
+    </dw-datatable>
+
+    <!-- ------------------------------------------------------------------------------- -->
+
+    <!-- example 2 -->
+
+    <!-- <dw-datatable 
+        src="https://jsonplaceholder.typicode.com/users"
+        columns="id , name, username, email ,phone ,website ,address.street, address.city, company.bs, company.catchPhrase"
+        livefilter="id, name, address.city, company.bs">
+    </dw-datatable> -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- example 3 -->
+
+    <!-- <dw-datatable 
+        src="https://jsonplaceholder.typicode.com/todos" 
+        columns="userId, id, title, completed"
+        livefilter="id, title">
+    </dw-datatable> -->
+
+    <!-- ------------------------------------------------------------------------------- -->
+    <!-- example 4 -->
+
+    <!-- <dw-datatable 
+        src="https://fakeapi.andreaspabst.com/api/users"
+        columns="id, name, email, email_verified_at, created_at, updated_at">
+    </dw-datatable> -->
+    <!-- ------------------------------------------------------------------------------- -->
+
+</body>
+</html>

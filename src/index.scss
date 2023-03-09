@@ -1,0 +1,344 @@
+:host {
+  font-family: 'Roboto', sans-serif;
+  font-size: .75rem;
+}
+
+.icon-arrow {
+  display: inline-block;
+  height: 0;
+  width: 0;
+  border-style: solid;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.icon-sort-desc {
+  @extend .icon-arrow;
+  border-width: 8px 6px 0;
+  border-top-color: #444444;
+}
+
+.icon-sort-asc {
+  @extend .icon-arrow;
+  border-width: 0 6px 8px;
+  border-bottom-color: #444444;
+}
+
+.main {
+  padding: 25px;
+  background: #f4f9fb;
+  height: auto;
+
+  .dwDataTableWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .filterToolWrapper {
+      display: flex;
+      max-width: 1000px;
+      align-items: flex-end;
+      align-content: stretch;
+      justify-content: center;
+
+      .columns {
+        .dropdown-check-list {
+          display: inline-block;
+        }
+
+        .dropdown-check-list .columnsname {
+          position: relative;
+          cursor: pointer;
+          display: inline-block;
+          padding: 5px 50px 5px 10px;
+          border: 1px solid #ccc;
+        }
+
+        .dropdown-check-list .columnsname:after {
+          position: absolute;
+          content: "";
+          border-left: 2px solid black;
+          border-top: 2px solid black;
+          padding: 5px;
+          right: 10px;
+          top: 20%;
+          -moz-transform: rotate(-135deg);
+          -ms-transform: rotate(-135deg);
+          -o-transform: rotate(-135deg);
+          -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+        }
+
+        .dropdown-check-list .columnsname:active:after {
+          right: 8px;
+          top: 21%;
+        }
+
+        .dropdown-check-list ul.items {
+          padding: 2px;
+          display: none;
+          margin: 0;
+          border: 1px solid #ccc;
+          border-top: none;
+        }
+
+        .dropdown-check-list ul.items li {
+          list-style: none;
+        }
+
+        .dropdown-check-list.visible .columnsname {
+          color: #0094ff;
+        }
+
+        .dropdown-check-list.visible .items {
+          display: block;
+        }
+      }
+    }
+
+    .dataTablesWrapper {
+      display: contents;
+      max-width: 1000px;
+
+      .buttons {
+        display: inline-block;
+
+        button {
+          margin-bottom: 0.5em;
+          padding-top: .6em;
+          padding-bottom: .6em;
+          color: #fff;
+          background-color: #aaabbb;
+          border-radius: 5px;
+          border: solid #cccccc 1px;
+        }
+      }
+
+      .inputs {
+        display: inline-block;
+
+        input[type=search] {
+          border: solid 1px black;
+          margin: 0;
+          padding: 7px 8px;
+          font-size: 14px;
+          color: inherit;
+          border-radius: inherit;
+        }
+
+        input[type="search"]::placeholder {
+          color: #bbb;
+        }
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+
+        th,
+        td {
+          padding: 8px;
+          text-align: left;
+          border-bottom: 1px solid #ddd;
+        }
+
+        th {
+          background: #eee;
+          cursor: pointer;
+        }
+
+        tr:nth-child(even) {
+          background: rgba(0, 0, 0, 0.07);
+        }
+
+        .selected {
+          background-color: rgba(201, 33, 33, 0.61) !important;
+        }
+
+        .dwIcons {
+          border-radius: 10px;
+          height: 15px
+        }
+        .dwIcons-active {
+          background-color: #3c3c3c;
+        }
+
+        .dwIcons-inactive {
+          background-color: white;
+        }
+      }
+
+      .dataTables_scroll {
+        height: 500px;
+        overflow-y: scroll;
+
+        thead {
+          position: sticky;
+          top: 0px;
+        }
+      }
+
+      .fg-toolbar {
+        text-align: center;
+      }
+    }
+  }
+
+  // styling loading ring
+  .ring {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #3c3c3c;
+    border-radius: 50%;
+    letter-spacing: 4px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+  }
+
+  .ring:before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-top: 3px solid #fff000;
+    border-right: 3px solid #fff000;
+    border-radius: 50%;
+    animation: animateC 2s linear infinite;
+  }
+
+  @keyframes animateC {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes animate {
+    0% {
+      transform: rotate(45deg);
+    }
+
+    100% {
+      transform: rotate(405deg);
+    }
+  }
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+  table {
+    display: block;
+
+    thead {
+      display: block;
+
+      tr {
+        display: block;
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        margin: 0 0 1rem 0;
+
+        th {
+          display: block;
+        }
+      }
+
+      tr:nth-child(odd) {
+        background: #ccc;
+      }
+    }
+
+    tbody {
+      display: block;
+
+      tr {
+        display: block;
+        margin: 0 0 1rem 0;
+
+        td {
+          display: block;
+          border: none;
+          border-bottom: 1px solid #eee;
+          position: relative;
+          padding-left: 50%;
+        }
+
+        td:before {
+          /* Now like a table header */
+          // position: absolute;
+          /* Top/left values mimic padding */
+          // top: 0;
+          // left: 6px;
+          width: 45%;
+          padding-right: 15px;
+          // white-space: nowrap;
+        }
+
+        td:nth-of-type(1):before {
+          content: "#";
+        }
+
+        td:nth-of-type(2):before {
+          content: "#";
+        }
+
+        td:nth-of-type(3):before {
+          content: "EmploymentType";
+        }
+
+        td:nth-of-type(4):before {
+          content: "Nationality";
+        }
+
+        td:nth-of-type(5):before {
+          content: "Surename";
+        }
+
+        td:nth-of-type(6):before {
+          content: "FirstNames";
+        }
+        td:nth-of-type(7):before {
+          content: "ID";
+        }
+        td:nth-of-type(8):before {
+          content: "CardGeneration";
+        }
+        td:nth-of-type(9):before {
+          content: "CardExpirationDate";
+        }
+        td:nth-of-type(10):before {
+          content: "card_state";
+        }
+        td:nth-of-type(11):before {
+          content: "CardNumber";
+        }
+        td:nth-of-type(12):before {
+          content: "card_state";
+        }
+        td:nth-of-type(13):before {
+          content: "Nation";
+        }
+        td:nth-of-type(14):before {
+          content: "CardExpirationDate";
+        }
+        td:nth-of-type(15):before {
+          content: "Activ";
+        }
+      }
+
+      tr:nth-child(odd) {
+        background: #ccc;
+      }
+    }
+  }
+}
